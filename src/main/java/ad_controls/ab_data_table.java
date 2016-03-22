@@ -81,6 +81,8 @@ class ab_data_table {
             });
 
             // TODO show editing!
+
+            // TODO hide/show columns!
         }
 
 
