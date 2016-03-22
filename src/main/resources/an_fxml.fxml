@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?language javascript?>
+
+<BorderPane fx:controller="aa_basics.ExampleController" xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <Button text="Press the button!" BorderPane.alignment="CENTER" onAction="#onButtonPressed"/>
+    </center>
+    <top>
+        <Label fx:id="helloLabel" text="Hi" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="10.0"/>
+            </BorderPane.margin>
+        </Label>
+    </top>
+    <bottom>
+        <Button text="One more button" BorderPane.alignment="CENTER" onAction="handleButtonPressed(event)"/>
+    </bottom>
+    <fx:script>
+        function handleButtonPressed() {
+            helloLabel.setText("One more button was pressed");
+        }
+    </fx:script>
+</BorderPane>
