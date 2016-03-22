@@ -82,7 +82,8 @@ class ab_data_table {
 
             // TODO show editing!
 
-            // TODO hide/show columns!
+            // -- step 6 show / hide columns
+            flightsTable.setTableMenuButtonVisible(true);
         }
 
 
