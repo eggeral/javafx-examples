@@ -73,6 +73,16 @@ class ab_data_table {
                 flights.add(newFlight);
             });
 
+            // -- step 4 observe selection changes
+            flightsTable.getSelectionModel().selectedItemProperty().addListener((src, oldFlight, newFlight) -> {
+                System.out.println("change");
+                if (oldFlight != null)
+                    System.out.println("old: " + oldFlight.getNumber());
+                if (newFlight != null)
+                    System.out.println("new: " + newFlight.getNumber());
+            });
+
+            // TODO show editing!
         }
 
 
