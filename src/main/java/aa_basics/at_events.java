@@ -9,7 +9,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-class as_events {
+class at_events {
     public static class Events extends Application {
 
         @Override

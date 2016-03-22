@@ -30,6 +30,7 @@ class ah_collections {
             System.out.println("====");
             shoppingListItems = FXCollections.observableArrayList();
             shoppingListItems.addListener((ListChangeListener<String>) change -> {
+                System.out.println("change");
                 while (change.next()) {
                     if (change.wasPermutated()) {
                         for (int i = change.getFrom(); i < change.getTo(); ++i) {

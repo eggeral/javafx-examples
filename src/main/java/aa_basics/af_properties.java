@@ -56,10 +56,6 @@ class af_properties {
             TextField itemNameTextField = new TextField();
 
             itemToBuy.itemNameProperty().bind(itemNameTextField.textProperty());
-            // This just invalidates the bind -> calls the change listener
-            // We need to get the value on our own
-            itemNameTextField.setText("test");
-
             root.setCenter(itemNameTextField);
 
             Scene mainScene = new Scene(root);
