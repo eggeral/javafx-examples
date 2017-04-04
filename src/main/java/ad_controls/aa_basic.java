@@ -66,9 +66,6 @@ class aa_basic {
             primaryStage.setHeight(600);
             primaryStage.show();
 
-
         }
-
-
     }
 }

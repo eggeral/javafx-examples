@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.ScrollPane?>
+<ScrollPane>
+	<GridPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+		<children>
+			<Label text="Titel" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+			<Label text="Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+			<Label text="Vorname" GridPane.columnIndex="0"
+				GridPane.rowIndex="2" />
+			<Label text="Konfession" GridPane.columnIndex="0"
+				GridPane.rowIndex="3" />
+			<Label text="Familienstand" GridPane.columnIndex="0"
+				GridPane.rowIndex="4" />
+			<Button text="Bild ändern" fx:id="setImageButton"
+				GridPane.columnIndex="0" GridPane.rowIndex="5" />
+
+			<TextField fx:id="titleTextField" promptText="Titel"
+				GridPane.columnIndex="1" GridPane.rowIndex="0" />
+			<TextField fx:id="surnameTextField" promptText="Name"
+				GridPane.columnIndex="1" GridPane.rowIndex="1" />
+			<TextField fx:id="forenameTextField" promptText="Vorname"
+				GridPane.columnIndex="1" GridPane.rowIndex="2" />
+			<ChoiceBox fx:id="confessionChoiceBox"
+				GridPane.columnIndex="1" GridPane.rowIndex="3" />
+			<ComboBox fx:id="maritalStatusComboBox"
+				GridPane.columnIndex="1" GridPane.rowIndex="4" />
+			<ImageView fx:id="imageView" GridPane.columnIndex="1"
+				GridPane.rowIndex="5" />
+
+		</children>
+	</GridPane>
+</ScrollPane>
