@@ -26,7 +26,7 @@ public class Main extends Application {
 		
 		LoginUi loginUi = new LoginUi();
 		LoginController loginController = new LoginController(loginUi);
-		loginController.initialize();
+		loginController.initialize(); // stay close to FXML pattern
 		loginController.setDatabase(database);
 
 		Scene mainScene = new Scene(loginUi.create());
