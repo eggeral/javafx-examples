@@ -40,9 +40,7 @@ public class BrowseController {
 						setMemberUi(member);
 					});
 				}
-
 			}
-
 		}
 
 		browseTreeView.setCellFactory((view) -> {

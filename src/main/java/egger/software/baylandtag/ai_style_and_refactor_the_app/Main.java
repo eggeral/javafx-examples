@@ -1,17 +1,23 @@
-package egger.software.baylandtag.al_edit_member;
+package egger.software.baylandtag.ai_style_and_refactor_the_app;
 
 import java.io.IOException;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
-	// 1. Add edit menu item an link to BaylandtagController editSelectedMember
-	// 2. Implement editSelectedMember on the list
-	// 3. Implement updateMember in the database
+	// 1. set the size of the app
+	// 2. remember the size of the app -> Refactor Utils.loadDatabaseProperties
+	// -> Configuration
+	// 3. use password text field, add prompt text
+	// 4. login grid padding programmatically.
+	// 4. login grid padding using css
+	// 5. baylandtagPane -> borderLayout
+
 	private Configuration configuration = new Configuration();
 	private Database database = new Database();
 
@@ -22,6 +28,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 
+		Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+			Utils.showException(throwable);
+			Platform.exit(); // will call stop()
+		});
+
 		try {
 
 			configuration.load();
@@ -30,6 +41,9 @@ public class Main extends Application {
 			database.setUser(configuration.getUsername());
 			database.setPassword(configuration.getPassword());
 
+			// we could also use properties in the configuration an connect them
+			// but we do it this way in order not
+			// to over do binding usage.
 			database.connectedProperty().addListener((observable, oldValue, newValue) -> {
 				if (newValue == true) {
 					configuration.setDatabaseUrl(database.getUrl());
@@ -55,13 +69,11 @@ public class Main extends Application {
 
 			MainUi mainUi = new MainUi();
 			MainController mainController = new MainController(mainUi);
-			mainController.initialize(); 
+			mainController.initialize(); // does nothing but we stay with the
+											// pattern for demo purpose.
 			mainController.setDatabase(database);
 			mainController.setLoginTabContent(loginUi.create());
 			mainController.setBaylandtagTabContent(baylandtagUi.create());
-			mainController.setAddMemberAction(() -> {baylandtagController.addMember();});
-			mainController.setDeleteMemberAction(() -> {baylandtagController.deleteSelectedMember();});
-			mainController.setEditMemberAction(() -> {baylandtagController.editSelectedMember();});
 
 			Parent root = mainUi.create();
 			Scene mainScene = new Scene(root);
@@ -69,6 +81,7 @@ public class Main extends Application {
 					.add(Main.class.getPackage().getName().replaceAll("\\.", "/") + "/baylandtag.css");
 
 			primaryStage.setScene(mainScene);
+			// 1. set the size of the app
 			primaryStage.setWidth(configuration.getStageWidth());
 			primaryStage.setHeight(configuration.getStageHeight());
 
@@ -88,8 +101,9 @@ public class Main extends Application {
 
 	}
 
+	// 2. Store stage properties
 	@Override
-	public void stop() {
+	public void stop() throws Exception {
 		try {
 			configuration.save();
 		} catch (IOException e) {

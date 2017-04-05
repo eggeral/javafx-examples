@@ -1,4 +1,4 @@
-package egger.software.baylandtag.ah_fill_member_table_from_db;
+package egger.software.baylandtag.ai_style_and_refactor_the_app;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -51,10 +51,11 @@ public class Database {
 	}
 
 	public List<Member> getAllMembers() {
-
-		try (PreparedStatement statement = connection
-				.prepareStatement("SELECT id, Name, Vorname, Titel FROM abgeordneter ORDER BY Name")) {
+	
+		try {
 			List<Member> members = new ArrayList<>();
+			PreparedStatement statement = connection
+					.prepareStatement("SELECT id, Name, Vorname, Titel FROM abgeordneter ORDER BY Name");
 
 			ResultSet resultSet = statement.executeQuery();
 			while (resultSet.next()) {

@@ -12,7 +12,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 // This is an integration test of controller and ui. Database is a dummy. 
-// Note that we could also test ui and controller separate!
+// Note that we could and should also test ui and controller separate!
 @RunWith(JavaFxJUnit4ClassRunner.class)
 public class LoginSpec {
 

@@ -46,6 +46,8 @@ public class BaylandtagController {
 		Parent content = memberUi.create();
 		Dialog<Member> dialog = new Dialog<>();
 		dialog.getDialogPane().setContent(content);
+		dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+		
 		dialog.setResultConverter(dialogButton -> {
 
 			if (dialogButton == ButtonType.OK)
@@ -60,7 +62,6 @@ public class BaylandtagController {
 
 		});
 
-		dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
 
 		dialog.showAndWait().ifPresent(member -> {
 			try {
