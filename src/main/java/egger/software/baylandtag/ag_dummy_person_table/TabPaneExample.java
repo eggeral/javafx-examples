@@ -29,8 +29,11 @@ public class TabPaneExample extends Application {
 		tab3.setText("Tab 3");
 		tab3.setContent(new Label("TAB 3"));
 		tab3.setDisable(true);
-
+				
 		tabPane.getTabs().addAll(tab1, tab2, tab3);
+
+		// -- step 2 select specific tab
+		tabPane.getSelectionModel().select(tab2);
 
 		Scene mainScene = new Scene(tabPane);
 		primaryStage.setScene(mainScene);

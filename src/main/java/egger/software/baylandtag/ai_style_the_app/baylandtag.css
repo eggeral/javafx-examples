@@ -9,3 +9,13 @@
 #loginPane .text-field {
 	-fx-min-width: 20em;
 }
+
+/* step 2 style the column headers */
+
+.table-view .column-header.surname .label {
+	-fx-alignment:center-left
+}
+
+.table-view .column-header.forename .label {
+	-fx-alignment:center-right	
+}

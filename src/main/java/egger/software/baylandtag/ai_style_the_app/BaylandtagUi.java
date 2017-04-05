@@ -16,9 +16,11 @@ public class BaylandtagUi {
 		
 		TableColumn<Member, String> surnameCol = new TableColumn<>("Name");
 		surnameCol.setCellValueFactory(new PropertyValueFactory<>("surname"));
-
+		surnameCol.getStyleClass().add("surname");
+		
 		TableColumn<Member, String> forenameCol = new TableColumn<>("Vorname");
 		forenameCol.setCellValueFactory(new PropertyValueFactory<>("forename"));
+		forenameCol.getStyleClass().add("forename");
 		
 		TableColumn<Member, String> titleCol = new TableColumn<>("Titel");
 		titleCol.setCellValueFactory(new PropertyValueFactory<>("title"));

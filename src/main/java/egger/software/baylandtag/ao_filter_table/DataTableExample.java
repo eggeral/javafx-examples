@@ -1,9 +1,13 @@
 package egger.software.baylandtag.ao_filter_table;
 
+import java.text.Collator;
+import java.util.Locale;
+
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -80,11 +84,23 @@ public class DataTableExample extends Application {
 			});
 		});
 
+		// 4. add sorting again
+		SortedList<Flight> sortedFlights = new SortedList<>(filteredFlights);
+		flightsTable.setItems(sortedFlights);
+		sortedFlights.comparatorProperty().bind(flightsTable.comparatorProperty());
+
+		flightNumberCol.setComparator((lhs, rhs) -> {
+			Collator collator = Collator.getInstance(Locale.GERMAN);
+			collator.setStrength(Collator.SECONDARY);// a == A, a < Ä
+			return collator.compare(lhs, rhs);
+		});
+		
 		Button removeButton = new Button("Remove Flight");
 		TextField number = new TextField();
 		Button addButton = new Button("Add Flight");
 		ToolBar toolbar = new ToolBar(filter, removeButton, number, addButton);
 		root.setTop(toolbar);
+		
 
 		removeButton.setOnMouseClicked(event -> {
 			Flight selectedFlight = flightsTable.getSelectionModel().getSelectedItem();
