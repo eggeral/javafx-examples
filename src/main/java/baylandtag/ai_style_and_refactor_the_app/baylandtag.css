@@ -1,0 +1,21 @@
+/* https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html */
+
+#loginPane {
+	-fx-padding: 1em;
+	-fx-hgap: 0.5em;	 	
+	-fx-vgap: 0.2em;
+}
+
+#loginPane .text-field {
+	-fx-min-width: 20em;
+}
+
+/* step 2 style the column headers */
+
+.table-view .column-header.surname .label {
+	-fx-alignment:center-left
+}
+
+.table-view .column-header.forename .label {
+	-fx-alignment:center-right	
+}
