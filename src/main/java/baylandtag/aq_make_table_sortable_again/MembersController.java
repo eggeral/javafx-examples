@@ -76,19 +76,19 @@ public class MembersController {
 		forenameCol.setCellFactory(TextFieldTableCell.forTableColumn());
 
 		titleCol.setOnEditCommit(event -> {
-			Member member = event.getTableView().getItems().get(event.getTablePosition().getRow());
+			Member member = event.getRowValue();
 			member.setTitle(event.getNewValue());
 			database.updateMember(member);
 		});
 
 		surnameCol.setOnEditCommit(event -> {
-			Member member = event.getTableView().getItems().get(event.getTablePosition().getRow());
+			Member member = event.getRowValue();
 			member.setSurname(event.getNewValue());
 			database.updateMember(member);
 		});
 
 		forenameCol.setOnEditCommit(event -> {
-			Member member = event.getTableView().getItems().get(event.getTablePosition().getRow());
+			Member member = event.getRowValue();
 			member.setForename(event.getNewValue());
 			database.updateMember(member);
 		});

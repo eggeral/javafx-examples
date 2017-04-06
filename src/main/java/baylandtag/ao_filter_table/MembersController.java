@@ -63,7 +63,7 @@ public class MembersController {
 				members = FXCollections.observableArrayList();
 
 			filteredMembers = new FilteredList<>(members);
-			membersTable.setItems(members);
+			membersTable.setItems(filteredMembers);
 
 		});
 

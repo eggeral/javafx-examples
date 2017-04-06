@@ -68,14 +68,12 @@ public class DataTableExample extends Application {
 		flightNumberCol.setCellFactory(TextFieldTableCell.forTableColumn());
 
 		// 2.
-//		flightNumberCol.setOnEditCommit(event -> {
-//			System.out.println(
-//					"OnEditCommit: Table item " + event.getTableView().getItems().get(event.getTablePosition().getRow())
-//							+ " -> " + event.getNewValue());
-//			
-//			// note that the flight does not change.
-//		});
-		
+		// flightNumberCol.setOnEditCommit(event -> {
+		// System.out.println("OnEditCommit: Table item " + event.getRowValue() + " -> " + event.getNewValue());
+		//
+		// // note that the flight does not change.
+		// });
+
 		// 3.
 		flightNumberCol.setOnEditCancel(event -> {
 			System.out.println("OnEditCancel");
@@ -83,17 +81,12 @@ public class DataTableExample extends Application {
 
 		// 4.
 		flightNumberCol.setOnEditCommit(event -> {
-			System.out.println(
-					"OnEditCommit: Table item " + event.getTableView().getItems().get(event.getTablePosition().getRow())
-							+ " -> " + event.getNewValue());
+			System.out.println("OnEditCommit: Table item " + event.getRowValue() + " -> " + event.getNewValue());
 
-			Flight flight =  event.getTableView().getItems().get(event.getTablePosition().getRow());
+			Flight flight = event.getRowValue();
 			flight.setNumber(event.getNewValue());
-			
-			// note that the flight does not change.
 		});
 
-		
 	}
 
 }

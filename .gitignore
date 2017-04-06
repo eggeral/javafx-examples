@@ -18,3 +18,7 @@ hs_err_pid*
 build
 dist
 compiled
+/bin/
+.classpath
+.settings
+.project
